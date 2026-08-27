@@ -67,7 +67,6 @@ function App() {
   const count = mountains.length;
   const goTo = (i) => setIndex(Math.max(0, Math.min(count - 1, i)));
 
-  // Arrow-key navigation.
   useEffect(() => {
     const onKey = (e) => {
       if (e.key === 'ArrowRight') goTo(index + 1);
@@ -77,9 +76,9 @@ function App() {
     return () => window.removeEventListener('keydown', onKey);
   }, [index]);
 
-  // Pointer handlers give swipe on touch and drag on desktop.
+ 
   const onDown = (e) => {
-    if (e.target.closest('button')) return; // let arrows/dots/nav work
+    if (e.target.closest('button')) return; 
     dragging.current = true;
     startX.current = e.clientX;
     e.currentTarget.setPointerCapture(e.pointerId);
